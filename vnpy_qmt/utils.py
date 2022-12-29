@@ -50,11 +50,6 @@ def from_vn_price_type(req: OrderRequest):
         return xtconstant.FIX_PRICE
     elif req.type == OrderType.MARKET:
         return xtconstant.LATEST_PRICE
-    elif req.type == OrderType.BestOrLimit:
-        if req.exchange == Exchange.SSE:
-            return xtconstant.MARKET_SH_CONVERT_5_LIMIT
-        else:
-            return xtconstant.MARKET_SZ_CONVERT_5_CANCEL
 
 
 def to_vn_contract(symbol):

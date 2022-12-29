@@ -45,11 +45,11 @@ class MD:
     def get_contract(self):
         self.write_log('开始获取标的信息')
         contract_ids = set()
-        bk = ['上期所', '上证A股', '上证B股', '上证期权', '中金所', '创业板', '大商所',
+        bk = ['上期所', '上证A股', '上证B股', '中金所', '创业板', '大商所',
               '沪市ETF', '沪市指数', '沪深A股',
               '沪深B股', '沪深ETF', '沪深指数', '深市ETF',
-              '深市基金', '深市指数', '深证A股', '深证B股', '深证期权', '科创板', '科创板CDR',
-              '连续合约']
+              '深市基金', '深市指数', '深证A股', '深证B股', '科创板', '科创板CDR',
+              ]
         for sector in bk:
             print(sector)
             stock_list = xtquant.xtdata.get_stock_list_in_sector(sector_name=sector)
