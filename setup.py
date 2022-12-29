@@ -16,13 +16,14 @@ setup(
     description='vnpy qmt gateway',  # Required
     long_description=long_description,  # Optional
     long_description_content_type='text/markdown',  # Optional (see note above)
+    url="https://github.com/fsksf/vnpy_qmt",
     author='fsksf',  # Optional
     author_email='kangyuqiang123@qq.com',
     classifiers=[  # Optional
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries',
-        'License :: Other/Proprietary License',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3.7',
     ],
     keywords='vnpy gateway qmt',  # Optional
