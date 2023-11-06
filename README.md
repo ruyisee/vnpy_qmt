@@ -10,10 +10,7 @@ QMT Gateway for vnpy
 (vnpyO) D:\work\my>cd vnpy_qmt
 (vnpyO) D:\work\my\vnpy_qmt>pip install .
 ```
-- pip源远程安装
-```commandline
-pip install vnpy-qmt
-```
+
 ## 依赖项目
 [迅投xtquant](https://github.com/ai4trade/XtQuant)
 # 使用

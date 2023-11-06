@@ -62,12 +62,12 @@ TO_VN_Product = {
     'index': Product.INDEX,
     'stock': Product.EQUITY,
     'fund': Product.FUND,
-    'etf': Product.ETF
+    'etf': Product.ETF,
 }
 
 
 def to_vn_product(dic: dict):
-    if dic['etf']:
+    if dic.get('etf'):
         return Product.ETF
     for k, v in dic.items():
         if v:
