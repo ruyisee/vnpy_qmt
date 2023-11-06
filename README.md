@@ -10,10 +10,43 @@ QMT Gateway for vnpy
 (vnpyO) D:\work\my>cd vnpy_qmt
 (vnpyO) D:\work\my\vnpy_qmt>pip install .
 ```
-- pip源远程安装
-```commandline
-pip install vnpy-qmt
+# 启用通道
+1. 需要使用脚本启动方式启动vnpy, 下面是一个示例(文件名如：run.py)
+2. 切换到vnpy环境(或者使用vnpy对应的python绝对路径)，运行 `python run.py`
+```python
+
+# -*- coding:utf-8 -*-
+
+from vnpy.event import EventEngine
+from vnpy.trader.engine import MainEngine
+from vnpy.trader.ui import MainWindow, create_qapp
+# 导入QMT gateway
+from vnpy_qmt.qmt_gateway import QmtGateway
+from vnpy_ctastrategy import CtaEngine, CtaStrategyApp
+
+
+def main():
+    """Start VN Trader"""
+    qapp = create_qapp()
+
+    event_engine = EventEngine()
+    main_engine = MainEngine(event_engine)
+    main_engine.add_app(CtaStrategyApp)
+    # 添加gateway
+    main_engine.add_gateway(QmtGateway, gateway_name="QMT")
+
+    main_window = MainWindow(main_engine, event_engine)
+    main_window.showMaximized()
+
+    qapp.exec()
+
+
+if __name__ == "__main__":
+    main()
 ```
+
+
+
 ## 依赖项目
 [迅投xtquant](https://github.com/ai4trade/XtQuant)
 # 使用
