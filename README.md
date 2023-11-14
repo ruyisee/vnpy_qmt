@@ -5,11 +5,15 @@ QMT Gateway for vnpy
 - 连接mini客户端实现普通买卖
 
 # 安装方式
+- pip源安装：已经发布到pypi仓库, 可以直接用pip命令安装
+  ```commandline
+  pip install vnpy-qmt
+  ```
 - 源码安装： 下载源码, 解压, 切换vnpy环境, 在cmd里执行
-```commandline
-(vnpyO) D:\work\my>cd vnpy_qmt
-(vnpyO) D:\work\my\vnpy_qmt>pip install .
-```
+  ```commandline
+  (vnpyO) D:\work\my>cd vnpy_qmt
+  (vnpyO) D:\work\my\vnpy_qmt>pip install .
+  ```
 # 启用通道
 1. 需要使用脚本启动方式启动vnpy, 下面是一个示例(文件名如：run.py)
 2. 切换到vnpy环境(或者使用vnpy对应的python绝对路径)，运行 `python run.py`
