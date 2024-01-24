@@ -48,6 +48,9 @@ if __name__ == "__main__":
 
 
 ## 依赖项目
-[迅投xtquant](https://github.com/ai4trade/XtQuant)
+[迅投xtquant官网下载](https://dict.thinktrader.net/nativeApi/download_xtquant.html)
+[迅投xtquant介绍](https://dict.thinktrader.net/nativeApi/start_now.html)
 # 使用
-1. 启动、登录mini客户端，在vn.py连接QMT
+1. 启动、登录QMT mini客户端
+2. 在vn.py连接QMT
+![login_qmt.png](doc%2Flogin_qmt.png)

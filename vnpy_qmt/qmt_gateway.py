@@ -87,11 +87,15 @@ class QmtGateway(BaseGateway):
         if self.count == -1:
             self.query_trade()
         self.count += 1
+
+        if self.count % 5 == 0:
+            self.query_order()
+
+        if self.count % 7 == 0:
+            self.query_account()
+            self.query_position()
         if self.count < 21:
             return
-        self.query_account()
-        self.query_position()
-        self.query_order()
         self.count = 0
 
     def write_log(self, msg):
