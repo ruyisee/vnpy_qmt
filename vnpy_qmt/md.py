@@ -17,6 +17,9 @@ from vnpy_qmt.utils import (
     TO_VN_Product, to_vn_product, timestamp_to_datetime,
     to_qmt_code
 )
+from vnpy.trader.utility import ZoneInfo
+
+ZONE_INFO = ZoneInfo("Asia/Shanghai")
 
 
 class MD:
@@ -98,12 +101,15 @@ class MD:
                 ask_vol = data['askVol']
                 bid_price = data['bidPrice']
                 bid_vol = data['bidVol']
-
+                dt = timestamp_to_datetime(data['time'])
+                dt = dt.replace(tzinfo=ZONE_INFO)
+                print(data)
+                print(dt)
                 tick = TickData(
                     gateway_name=self.gateway.gateway_name,
                     symbol=symbol,
                     exchange=exchange,
-                    datetime=timestamp_to_datetime(data['time']),
+                    datetime=dt,
                     last_price=data['lastPrice'],
                     volume=data['volume'],
                     open_price=data['open'],
