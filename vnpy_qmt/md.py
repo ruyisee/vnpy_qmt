@@ -142,5 +142,6 @@ class MD:
                 tick.limit_up = self.limit_ups.get(tick.vt_symbol, None)
                 tick.limit_down = self.limit_downs.get(tick.vt_symbol, None)
                 self.gateway.on_tick(tick)
+
     def write_log(self, msg):
         self.gateway.write_log(f"[ md ] {msg}")
