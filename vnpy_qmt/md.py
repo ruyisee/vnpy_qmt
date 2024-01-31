@@ -103,8 +103,6 @@ class MD:
                 bid_vol = data['bidVol']
                 dt = timestamp_to_datetime(data['time'])
                 dt = dt.replace(tzinfo=ZONE_INFO)
-                print(data)
-                print(dt)
                 tick = TickData(
                     gateway_name=self.gateway.gateway_name,
                     symbol=symbol,
