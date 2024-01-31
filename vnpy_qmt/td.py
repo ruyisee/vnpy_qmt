@@ -34,7 +34,6 @@ class TD(XtQuantTraderCallback):
         self.trader: XtQuantTrader = None
         self.account = None
         self.mini_path = None
-        self.dbf_dir = None
         self.inited = False
         self.orders: Dict[str, OrderData] = {}
         self.traders: Dict[str, TradeData] = {}
@@ -42,11 +41,9 @@ class TD(XtQuantTraderCallback):
     def connect(self, settings: dict):
         account = settings['交易账号']
         self.mini_path = path = settings['mini路径']
-        self.dbf_dir = os.path.join(os.path.dirname(self.mini_path), 'export_data')
-        session_id = random.randrange(1, 100000, 1)
         acc = StockAccount(account)
         self.account = acc
-        self.trader = XtQuantTrader(path=path, session=session_id)
+        self.trader = XtQuantTrader(path=path, session=self.session_id)
         self.trader.register_callback(self)
         self.trader.start()
         self.write_log('连接QMT')
@@ -63,12 +60,9 @@ class TD(XtQuantTraderCallback):
             self.write_log(f'订阅账户【失败】： {sub_msg}')
 
     def get_order_remark(self):
-        mark = f'{str(self.session_id)}.{self.count}'
         self.count += 1
+        mark = f'{str(self.session_id)}#{self.count}'
         return mark
-
-    def get_vn_orderid(self, seq):
-        return f'{self.gateway.gateway_name}.{str(seq)}'
 
     def send_order(self, req: OrderRequest):
         vn_oid = self.get_order_remark()
@@ -92,7 +86,7 @@ class TD(XtQuantTraderCallback):
                           price=req.price,
                           status=Status.SUBMITTING)
         self.orders[order.orderid] = order
-        return self.get_vn_orderid(seq)
+        return order.vt_orderid
 
     def cancel_order(self, order_id):
         order = self.orders.get(order_id)
