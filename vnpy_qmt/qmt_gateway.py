@@ -4,7 +4,6 @@
 @Time      :2022/11/8 16:49
 @Author    :fsksf
 """
-from collections import defaultdict
 from typing import Dict, List
 from vnpy.event import Event, EventEngine
 from vnpy.trader.event import (
@@ -29,6 +28,8 @@ from vnpy_qmt.td import TD
 
 class QmtGateway(BaseGateway):
 
+    default_name = "QMT"
+
     default_setting: Dict[str, str] = {
         "交易账号": "",
         "mini路径": ""
@@ -42,7 +43,6 @@ class QmtGateway(BaseGateway):
         self.contracts: Dict[str, ContractData] = {}
         self.md = MD(self)
         self.td = TD(self)
-        self.components: Dict[str, List[BasketComponent]] = defaultdict(list)
         self.count = -1
         self.event_engine.register(EVENT_TIMER, self.process_timer_event)
 

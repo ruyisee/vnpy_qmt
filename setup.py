@@ -12,7 +12,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setup(
     name='vnpy_qmt',  # Required
-    version='0.3.2',  # Required
+    version='0.3.3',  # Required
     description='vnpy qmt gateway',  # Required
     long_description=long_description,  # Optional
     long_description_content_type='text/markdown',  # Optional (see note above)
@@ -25,6 +25,9 @@ setup(
         'Topic :: Software Development :: Libraries',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     keywords='vnpy gateway qmt',  # Optional
     packages=find_packages()
