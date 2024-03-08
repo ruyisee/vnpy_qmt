@@ -68,7 +68,6 @@ class MD:
                     exchange = TO_VN_Exchange_map[info['ExchangeID']]
                 except KeyError:
 
-
                     print('本gateway不支持的标的', symbol)
                     continue
                 if exchange not in self.gateway.exchanges:
