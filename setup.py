@@ -25,6 +25,9 @@ setup(
         'Topic :: Software Development :: Libraries',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     keywords='vnpy gateway qmt',  # Optional
     packages=find_packages()
